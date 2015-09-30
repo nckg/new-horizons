@@ -1,16 +1,24 @@
 {
   "name": "Horizons",
   "version": "0.0.1",
-  "description": "\'Endless\' space exploration simulator",
-  "main": "index.js",
+  "description": "Endless space exploration simulator",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/serve",
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "NODE_ENV=test mocha test/unit/**.js",
+    "test-integration": "NODE_ENV=test mocha test/integration/**.js"
   },
   "author": "Nick Goris <nickgoris@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "sequelize": "^3.9.0",
+    "sequelize-cli": "^1.9.1",
     "sqlite3": "^3.1.0",
     "websocket": "^1.0.21"
+  },
+  "devDependencies": {
+    "bluebird": "^2.9.33",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5"
   }
 }
